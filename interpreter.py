@@ -14,7 +14,7 @@ class Interpreter(object):
 		answer = self.stack.pop()
 		print(answer)
 
-	def ADD_TWO_VALUES(self):
+	def ADD_VALUES(self):
 		second_number = self.stack.pop()
 		first_number = self.stack.pop()
 		answer = first_number + second_number
@@ -28,18 +28,20 @@ class Interpreter(object):
 			if event == 'LOAD_VALUE':
 				number = numbers[index]
 				self.LOAD_VALUE(number)
-			elif event == 'ADD_TWO_VALUES':
-				self.ADD_TWO_VALUES()
+			elif event == 'ADD_VALUES':
+				self.ADD_VALUES()
 			elif event == 'PRINT_ANSWER':
 				self.PRINT_ANSWER()
 
 
 what_to_execute = {
-	    "instructions": [("LOAD_VALUE", 0),  # the first number
-                     ("LOAD_VALUE", 1),  # the second number
-                     ("ADD_TWO_VALUES", None),
-                     ("PRINT_ANSWER", None)],
-    "numbers": [7, 5]
+        "instructions": [("LOAD_VALUE", 0),
+                         ("LOAD_VALUE", 1),
+                         ("ADD_TWO_VALUES", None),
+                         ("LOAD_VALUE", 2),
+                         ("ADD_VALUES", None),
+                         ("PRINT_ANSWER", None)],
+        "numbers": [7, 5, 8]
 }
 
 interpreter = Interpreter()
